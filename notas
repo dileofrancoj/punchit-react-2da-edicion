@@ -1,0 +1,14 @@
+.nvmrc -> v14
+
+TDD -> Desarrollo guiado por pruebas (Minimo de Coverage) -> % 90
+
+Libreria para testing: 
+    React Testing Library (Testing UI) -> jest (Test Unitario)
+    Enzyme (Basado en funcionalidades) -> jest (Test Unitario)
+
+Estado (React) (Contador, Notas)
+Notas -> Testing (Coverage)
+
+npm i bootstrap --> solo sirve si no uso CDN
+npm i react-bootstrap 
+npm i short-id
