@@ -1,0 +1,8 @@
+npm i react-bootstrap bootstrap styled-components
+npm i eslint -D
+
+package.json -> devDepencie
+
+npx eslint --init
+
+
