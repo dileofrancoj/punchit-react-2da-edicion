@@ -1,0 +1,13 @@
+.mouse-area {
+  height: 600px;
+  background: pink;
+  width: 100%;
+  border: 1px solid black;
+}
+
+h1,
+h2 {
+  color: white;
+  margin-top: 1em;
+  text-align: center;
+}

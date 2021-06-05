@@ -1,0 +1,51 @@
+Fiber - Reconciliacion:
+
+Algoritmo diferencial (actualizaciones tienen que ser predecibles y rápidas)
+
+Class App extends Component {
+    constructor() {
+        super()
+        this.state = {
+
+        }
+    }
+
+    render(){
+
+    }
+
+
+}
+
+Arbol de componentes -> Elementos React
+
+Transformar un árbol (A) en otro arbol (B) -> forma eficiente
+Algoritmo heuristico
+
+
+A: <a href="">
+B: <a href="https://www.google.com.ar" />
+
+A: <div style={{background:"tomato", width:"50%"}}> </div>
+B: <div style={{background:"tomato", width:"100%"}}> </div>
+
+Recursion en hijos
+a   <ul>
+        <li>First</li>
+    </ul>
+
+B   
+    <ul>
+        <li>First</li>
+        <li>Second</li>
+    </ul>
+
+C
+    <ul>
+        <li key="">3er</li>
+        <li>First</li>
+        <li>Second</li>
+    </ul>
+
+Render strategies (CSR menos TTI, SSR, Dynamic Render)
+Virtualizacion de listas: windowing (intersection observer)

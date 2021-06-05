@@ -12,6 +12,7 @@ const TaskForm = ({ addTask }) => {
       name: taskName.value.trim(),
       description: taskDescription.value.trim(),
     });
+    e.target.reset();
   };
   return (
     <Form onSubmit={handleAddTask}>

@@ -7,6 +7,7 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   const addTask = (task) => {
+    localStorage.setItem("tasks", JSON.stringify([...tasks, task]));
     setTasks([...tasks, task]);
   };
 
