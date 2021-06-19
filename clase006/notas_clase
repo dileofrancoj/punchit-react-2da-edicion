@@ -1,0 +1,10 @@
+
+Arquitectura flux: https://carlosazaustre.es/como-funciona-flux
+
+Testing unitario: RTL (UI), Enzyme (Funcionalides) (Mockeados)
+Testing E2E: Cypress (API's)
+Enzyme vs RTL: https://medium.com/wesionary-team/react-testing-library-vs-enzyme-afd29db380ac
+
+.jest.env
+.jest.conf -> react scripts (que archivos testear)
+Scrapper --> __tests__ -> .test.js .spec.js
