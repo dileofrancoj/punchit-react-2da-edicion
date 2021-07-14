@@ -1,0 +1,8 @@
+.nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav .active__nav {
+  color: orangered;
+}
