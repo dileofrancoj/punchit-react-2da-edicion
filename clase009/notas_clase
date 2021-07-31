@@ -1,0 +1,35 @@
+** Context API
+    * Login
+    * Favoritos
+
+** Redux (state managment) --> SPA (Información consecutiva) ->
+** Typescript
+** NextJS (framework SSR) --> typescript
+
+** Context (Reducer Auth)
+** Material 
+** Rutas publicas y privadas
+** Validacion de formularios (formik + yup)
+** Interceptors (axios)
+
+
+Librerias / Tecs : i18n -> traducciones
+
+Librerias para validación de formularios: formik (customHook) + yup (yup resolvers) -> schemas
+Librerias para validación de Información backend : @hapi/joi
+
+Formik: https://formik.org/
+Material UI: https://material-ui.com/getting-started/installation/
+
+::: Error::: 
+TypeError: schema[(intermediate value)(intermediate value)(intermediate value)] is not a function
+
+Recordar que la validación se debe hacer mediante un Yup.object(validationSchema)
+
+
+JWT : https://jwt.io/ (Transportar información)
+
+Refresh token -> endpoint en el backend
+
+Tarea -> armar un dashboard con un navbar (mostrar el nombre del usuario y el logout)
+Como actualizar el state (auth) cuando el usuario recarga la página (useEffect(()=> {},[]))
