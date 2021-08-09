@@ -1,8 +1,8 @@
 import { createContext, useContext, useReducer } from "react";
 import jwt_decode from "jwt-decode";
-
 import { LOGOUT, SET_AUTH } from "../actions/auth";
 import { authReducer, initialState } from "../reducers/auth";
+import { API } from "../api";
 
 export const AuthContext = createContext();
 const { Provider } = AuthContext;
@@ -13,20 +13,21 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     dispatch({ type: LOGOUT });
     localStorage.removeItem("auth");
+    window.location.href = "/login";
+  };
+
+  const isLoggedIn = () => {
+    if (localStorage.getItem("auth")) return true;
+    return false;
   };
 
   const getUserInformation = () => jwt_decode(state.jwt);
 
-  const login = ({ username, password }) => {
-    // Una vez se ejecuta el método del login del contexto este realiza una petición http (post) al backend /authentication
-    // El backend verifica el usuario password enviado
-    // Si el usuario y el password es correcto el backend crea un JWT (iat, nombre, id)
-    // Si los datos de ingreso son incorrectos -> jwt : null
-    // API.post("/auth", { username, password });
-    if (username === "admin" && password === "1234") {
-      const { jwt } = {
-        jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkZyYW5jbyBEaSBMZW8iLCJpYXQiOjE1MTYyMzkwMjJ9.A_tbNPFxSZrtLjJlNY6IDXUDR7wKnIjd49TOOlu_W-0",
-      };
+  const login = async ({ username, password }) => {
+    const {
+      data: { jwt },
+    } = await API.post("auth", { username, password });
+    if (jwt) {
       setAuth({ jwt });
       localStorage.setItem("auth", jwt);
       return jwt;
@@ -40,7 +41,9 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <Provider value={{ setAuth, logout, login, getUserInformation }}>
+    <Provider
+      value={{ setAuth, logout, login, getUserInformation, isLoggedIn }}
+    >
       {children}
     </Provider>
   );

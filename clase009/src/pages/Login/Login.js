@@ -13,9 +13,9 @@ const Login = () => {
 
   const [wrongPassword, setWrongPassword] = useState(false);
 
-  const handleLogin = ({ username, password }) => {
+  const handleLogin = async ({ username, password }) => {
     // llegado a este punto -> username y password estan validados con mi schema.
-    const jwt = login({ username, password }); // jwt sea null o sea distinto de null
+    const jwt = await login({ username, password }); // jwt sea null o sea distinto de null
     if (!jwt) return setWrongPassword(true);
     setWrongPassword(false);
     history.push("/dashboard");

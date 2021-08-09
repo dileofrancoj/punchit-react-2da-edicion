@@ -1,11 +1,9 @@
 import axios from "axios";
 
 export const API = axios.create({
-  baseUrl: "http://localhost:8000/api",
+  baseURL: "http://localhost:8000/",
 });
 
-// request -> enviar información
-// response -> recibir información
 API.interceptors.request.use((config) => {
   const jwt = localStorage.getItem("auth") ?? "";
   config.headers["Authorization"] = jwt;
