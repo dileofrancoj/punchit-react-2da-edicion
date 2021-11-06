@@ -1,0 +1,18 @@
+https://carlosazaustre.es/como-funciona-flux
+https://medium.com/react-redux/estructura-de-archivos-ducks-para-redux-js-36bb56a70cb3
+https://redux.js.org/tutorials/essentials/part-5-async-logic
+https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=es
+
+<Provider> --> redux (login, theme, products)
+Pagina
+
+        Componente1
+        <Context>
+
+            Componente2
+                <Componente 4 />
+            Componente3
+
+        </Context>
+
+</Provider>

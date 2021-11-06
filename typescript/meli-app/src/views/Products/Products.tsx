@@ -1,33 +1,29 @@
-import React from "react";
 import { Container, Row } from "react-bootstrap";
 import { Helmet } from "react-helmet";
 
+import { useProducts } from "../../contexts/ProductsContext";
 import ProductList from "../../components/ProductList";
-import { useFetch } from "../../hooks/useFetch";
-import { iProduct } from "../../interfaces/products";
+import { iProduct } from "../../types/products";
 
-const Products: React.FC = (): JSX.Element => {
-  const [products, loading] = useFetch("search?q=zapatillas&limit=5");
-  const { results }: { results: Array<iProduct> } = products;
+const ProductsView: React.FC = () => {
+  const { loading, productsResults } = useProducts();
 
-  console.log(results);
-  if (loading) return <h3>Cargando...</h3>;
+  if (loading) return <h2>Cargando...</h2>;
 
   return (
     <>
       <Helmet>
-        <title>Productos</title>
         <meta charSet="utf-8" />
+        <title>Productos</title>
       </Helmet>
-
       <Container>
         <Row className="justify-content-center">
-          {results?.length > 0 ? (
-            results.map((product: iProduct) => (
+          {productsResults?.length > 0 ? (
+            productsResults.map((product: iProduct) => (
               <ProductList product={product} />
             ))
           ) : (
-            <h3>No hay productos</h3>
+            <h3>No hay productos disponibles</h3>
           )}
         </Row>
       </Container>
@@ -35,4 +31,4 @@ const Products: React.FC = (): JSX.Element => {
   );
 };
 
-export default Products;
+export default ProductsView;

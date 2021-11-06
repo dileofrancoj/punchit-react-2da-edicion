@@ -1,4 +1,4 @@
-import { useEffect, useCallback, useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { AxiosResponse } from "axios";
 
 import API from "../API";
@@ -9,8 +9,8 @@ export const useFetch = (endpoint: string): [any, boolean] => {
 
   const fetchData = useCallback(async () => {
     try {
-      const { data }: AxiosResponse = await API.get(endpoint);
-      setData(data);
+      const { data: responseData }: AxiosResponse = await API.get(endpoint);
+      setData(responseData);
       setLoading(false);
     } catch (e) {
       setLoading(false);

@@ -1,27 +1,28 @@
-import React, { Suspense } from "react";
-import { Helmet } from "react-helmet";
-
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
   Redirect,
+  Switch,
 } from "react-router-dom";
+import Search from "../components/Search";
+import { ProductsProvider } from "../contexts/ProductsContext";
 
-const ProductsView = React.lazy(() => import("../views/Products/Products"));
-const ProductView = React.lazy(() => import("../views/Product/Product"));
+import ProductView from "../views/Product/Product";
+import ProductsView from "../views/Products/Products";
 
-const Routes = () => (
-  <Router>
-    <Suspense fallback={<div>Cargando...</div>}>
-      <Switch>
-        <Route path="/products" exact component={ProductsView} />
-        <Route path="/products/:id" component={ProductView} />
-
-        <Redirect to="/products" />
-      </Switch>
-    </Suspense>
-  </Router>
-);
+const Routes = () => {
+  return (
+    <Router>
+      <ProductsProvider>
+        <Search />
+        <Switch>
+          <Route path="/products" exact component={ProductsView} />
+          <Route path="/products/:id" component={ProductView} />
+          <Redirect to="/products" />
+        </Switch>
+      </ProductsProvider>
+    </Router>
+  );
+};
 
 export default Routes;

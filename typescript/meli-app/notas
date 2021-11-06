@@ -1,0 +1,7 @@
+NODE_ENV=development npx webpack --config webpack.config.js --analyze
+webpack analyzer
+
+moment (600kb) -> date-fns (45kb)
+
+npm install -D source-map-explorer
+"analyze": "source-map-explorer 'build/static/js/*.js'"
